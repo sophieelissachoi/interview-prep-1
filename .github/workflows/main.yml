@@ -1,0 +1,13 @@
+on:
+  push:
+    branches: master
+
+jobs:
+  deploy:
+    runs-on: ubuntu:latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run docker compose
+        uses: hoverkraft-tech/compose-action@b659c744ee9bed25aea2307c017ad849bd104433 # v3.2.0
+        with:
+          compose-file: "../docker-compose.yml"
