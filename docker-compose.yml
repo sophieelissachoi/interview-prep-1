@@ -1,0 +1,14 @@
+services:
+  frontend:
+    build: ./client
+    ports:
+      - 3000:3000
+    restart: unless-stopped
+
+  backend:
+    depends_on:
+      - frontend
+    build: .
+    ports:
+      - 5001:5001
+    restart: unless-stopped
